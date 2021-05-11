@@ -1,0 +1,17 @@
+{
+  categories {
+    id
+    active
+    title
+    parent {
+      id
+    }
+    root {
+      id
+      title
+    }
+    seo {
+      url
+    }
+  }
+}

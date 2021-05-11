@@ -1,0 +1,22 @@
+query ($category: String){
+  categories(filter: {
+    title: {
+      equals: $category
+    }
+  }) {
+    products {
+      id
+      title
+      price {
+        currency {
+          sign
+        }
+        price
+        nettoPriceMode
+      }
+      imageGallery {
+        thumb
+      }
+    }
+  }
+}
