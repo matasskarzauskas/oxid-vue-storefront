@@ -27,15 +27,11 @@ Install modules
 $ npm install
 ```
 
-Create environment variables
+Change GraphQL endpoint in `nuxt.config.js`
 
+Example
 ```sh
-$ sudo nano .env
-```
-Example environment variables
-```sh
-VUE_APP_GRAPHQL_HTTP=http://oxidshop.com/graphql?skipSession=1
-VUE_APP_GRAPHQL_WS=ws://oxidshop.com/graphql?skipSession=1
+httpEndpoint: 'http://localhost/graphql?skipSession=1'
 ```
 
 Run development server
