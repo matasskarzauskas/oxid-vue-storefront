@@ -15,20 +15,29 @@
         v-if="!$apollo.loading && categories.length >= 0"
       >
         <div
-          class="shadow-sm p-2 antialiased rounded-md flex flex-col align-between justify-center category-product-card"
+          class="p-2 antialiased flex flex-col align-between shadow-md rounded-md justify-center category-product-card"
           v-for="product in categories[0].products"
           v-bind:key="product.id"
         >
           <img
+            @click="goToProduct(product.id)"
             :src="product.imageGallery.thumb"
-            class="category-product-thumb"
+            class="category-product-thumb cursor-pointer"
           />
-          <span class="font-medium">{{ product.title }}</span>
-          <price class="text-xl font-semibold mt-2 mb-2"
-            >{{ product.price.price }}{{ product.price.currency.sign }}</price
+          <span
+            @click="goToProduct(product.id)"
+            class="font-medium cursor-pointer hover:underline"
+            >{{ product.title }}</span
+          >
+          <span class="text-xl font-semibold mt-2 mb-2"
+            >{{ product.price.price }}{{ product.price.currency.sign }}</span
           >
           <div class="flex items-center justify-between">
-            <button class="button--grey shadow-sm">Add to cart</button>
+            <button
+              class="bg-gray-800 rounded px-2 py-1 text-white hover:bg-gray-700 shadow-sm"
+            >
+              Add to cart
+            </button>
             <div class="flex flex-row">
               <a href="#" class="text-gray-800 p-2 hover:shadow-md rounded-md">
                 <svg
@@ -91,7 +100,16 @@ export default {
       categoryTree: [],
     }
   },
-  methods: {},
+  methods: {
+    goToProduct(id) {
+      this.$router.push({
+        name: 'product-id',
+        params: {
+          id,
+        },
+      })
+    },
+  },
 }
 </script>
 

@@ -1,0 +1,29 @@
+query($id: String!) {
+  product(id: $id) {
+    id
+    sku
+    active
+    title
+    price {
+      currency {
+        sign
+      }
+      price
+    }
+    stock {
+      stock
+    }
+    rating {
+      rating
+      count
+    }
+    shortDescription
+    longDescription
+    imageGallery {
+      images {
+        image
+        zoom
+      }
+    }
+  }
+}
