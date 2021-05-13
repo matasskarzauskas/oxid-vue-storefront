@@ -73,7 +73,7 @@
             />
           </div>
           <div class="hidden sm:block sm:ml-6">
-            <div class="flex space-x-4">
+            <div class="flex space-x-4" v-if="!$apollo.loading && categoryTree">
               <div
                 class="group relative inline-block text-left"
                 v-for="category in categoryTree"
@@ -215,7 +215,7 @@ export default {
       const rootCategories = []
       data.data.categories.forEach((item) => {
         // First off, set root categories
-        if (!rootCategories.includes(item.root.id)) {
+        if (item.root && !rootCategories.includes(item.root.id)) {
           rootCategories.push(item.root.id)
           const children = data.data.categories.filter((c) => {
             const parent = c.parent ? c.parent.id : null

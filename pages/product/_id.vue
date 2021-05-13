@@ -55,7 +55,7 @@
             </button>
           </div>
 
-          <span class="font-medium mt-4">Description</span>
+          <span class="font-bold mt-4">Description</span>
           <div>
             <span>
               {{ product.shortDescription }}

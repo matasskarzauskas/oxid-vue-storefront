@@ -31,17 +31,19 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    '@nuxtjs/apollo',
-  ],
+  modules: ['@nuxtjs/apollo'],
 
   apollo: {
     clientConfigs: {
       default: {
         httpEndpoint: 'http://localhost/graphql?skipSession=1',
-      }
-    }
+      },
+    },
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    babel: {
+      plugins: [['@babel/plugin-proposal-private-methods', { loose: true }]],
+    },
+  },
 }

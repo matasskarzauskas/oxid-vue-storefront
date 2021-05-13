@@ -10,7 +10,9 @@
     <div class="container flex items-center justify-center">
       <div
         class="grid grid-cols-1 md:grid-cols-4 gap-5 mt-4"
-        v-if="!$apollo.loading && categories.length >= 0"
+        v-if="
+          !$apollo.loading && categories.length >= 1 && categories[0].products
+        "
       >
         <a
           class="shadow-sm p-2 antialiased rounded-md flex flex-col align-between justify-center category-product-card"
@@ -31,7 +33,11 @@
             >{{ product.price.price }}{{ product.price.currency.sign }}</span
           >
           <div class="flex items-center justify-between">
-            <button class="bg-gray-800 shadow-sm">Add to cart</button>
+            <button
+              class="bg-gray-800 rounded px-2 py-1 text-white hover:bg-gray-700 shadow-sm"
+            >
+              Add to cart
+            </button>
             <div class="flex flex-row">
               <a href="#" class="text-gray-800 p-2 hover:shadow-md rounded-md">
                 <svg

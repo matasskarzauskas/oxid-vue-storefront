@@ -12,7 +12,9 @@
     <div class="container flex items-center justify-center">
       <div
         class="grid grid-cols-1 md:grid-cols-4 gap-5 mt-4"
-        v-if="!$apollo.loading && categories.length >= 0"
+        v-if="
+          !$apollo.loading && categories.length >= 1 && categories[0].products
+        "
       >
         <div
           class="p-2 antialiased flex flex-col align-between shadow-md rounded-md justify-center category-product-card"
